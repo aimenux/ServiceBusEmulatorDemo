@@ -11,7 +11,10 @@ Playing with service bus emulator
 >
 > :two: `Example02` : use worker template with topics/subscriptions
 >
->
+> To run the demo, type the following commands :
+> - `docker compose -f .\config\docker-compose.yaml up -d`
+> - `dotnet run --project .\src\Example01` 
+> - `dotnet run --project .\src\Example02` 
 >
 
 **`Tools`** : net 8.0, servicebus-emulator, docker

@@ -8,7 +8,7 @@ namespace Example02;
 
 public static class DependencyInjection
 {
-    public static HostApplicationBuilder AddServices(this HostApplicationBuilder builder)
+    public static void AddServices(this HostApplicationBuilder builder)
     {
         builder.Services.Configure<Settings>(builder.Configuration.GetSection(Settings.SectionName));
         builder.Services.AddSingleton<IValidateOptions<Settings>, SettingsValidator>();
@@ -20,6 +20,5 @@ public static class DependencyInjection
         });
         builder.Services.AddHostedService<TopicConsumer>();
         builder.Services.AddHostedService<TopicProducer>();
-        return builder;
     }
 }
