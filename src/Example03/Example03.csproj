@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
-    <UserSecretsId>ServiceBusEmulatorDemo-Example02</UserSecretsId>
+    <UserSecretsId>ServiceBusEmulatorDemo-Example03</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

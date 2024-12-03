@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{664E57E9
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example03", "src\Example03\Example03.csproj", "{D3C7692A-23C1-4722-8CF2-7099798B1C14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,9 +42,14 @@ Global
 		{F8F2D186-6299-4B04-A4F2-C000EC506A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8F2D186-6299-4B04-A4F2-C000EC506A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8F2D186-6299-4B04-A4F2-C000EC506A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C7692A-23C1-4722-8CF2-7099798B1C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C7692A-23C1-4722-8CF2-7099798B1C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C7692A-23C1-4722-8CF2-7099798B1C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C7692A-23C1-4722-8CF2-7099798B1C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5D95F02F-EB38-4C6F-A5B0-27B663CA7DBA} = {4D122747-6CFF-42CA-8B43-26725EB503CC}
 		{F8F2D186-6299-4B04-A4F2-C000EC506A58} = {4D122747-6CFF-42CA-8B43-26725EB503CC}
+		{D3C7692A-23C1-4722-8CF2-7099798B1C14} = {4D122747-6CFF-42CA-8B43-26725EB503CC}
 	EndGlobalSection
 EndGlobal

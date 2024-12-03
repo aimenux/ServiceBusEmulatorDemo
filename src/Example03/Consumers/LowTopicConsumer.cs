@@ -1,18 +1,18 @@
 ﻿using Azure.Messaging.ServiceBus;
-using Example02.Configuration;
-using Example02.Contracts;
-using Example02.Extensions;
+using Example03.Configuration;
+using Example03.Contracts;
+using Example03.Extensions;
 using Microsoft.Extensions.Options;
 
-namespace Example02.Consumers;
+namespace Example03.Consumers;
 
-public class TopicConsumer : BackgroundService
+public class LowTopicConsumer : BackgroundService
 {
     private readonly ServiceBusClient _client;
     private readonly IOptions<Settings> _options;
-    private readonly ILogger<TopicConsumer> _logger;
+    private readonly ILogger<LowTopicConsumer> _logger;
 
-    public TopicConsumer(ServiceBusClient client, IOptions<Settings> options, ILogger<TopicConsumer> logger)
+    public LowTopicConsumer(ServiceBusClient client, IOptions<Settings> options, ILogger<LowTopicConsumer> logger)
     {
         _client = client ?? throw new ArgumentNullException(nameof(client));
         _options = options ?? throw new ArgumentNullException(nameof(options));
@@ -21,7 +21,7 @@ public class TopicConsumer : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
-        var receiver = _client.CreateReceiver(_options.Value.TopicName, _options.Value.SubscriptionName);
+        var receiver = _client.CreateReceiver(_options.Value.TopicName, _options.Value.LowSubscriptionName);
 
         while (!cancellationToken.IsCancellationRequested)
         {

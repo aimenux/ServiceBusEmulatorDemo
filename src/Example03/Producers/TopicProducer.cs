@@ -1,11 +1,11 @@
 using System.Text.Json;
 using Azure.Messaging.ServiceBus;
-using Example02.Configuration;
-using Example02.Contracts;
-using Example02.Extensions;
+using Example03.Configuration;
+using Example03.Contracts;
+using Example03.Extensions;
 using Microsoft.Extensions.Options;
 
-namespace Example02.Producers;
+namespace Example03.Producers;
 
 public class TopicProducer : BackgroundService
 {

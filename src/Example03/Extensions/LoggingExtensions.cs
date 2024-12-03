@@ -1,4 +1,4 @@
-﻿namespace Example02.Extensions;
+﻿namespace Example03.Extensions;
 
 public static partial class LoggingExtensions
 {

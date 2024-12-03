@@ -1,4 +1,4 @@
-﻿namespace Example02.Contracts;
+﻿namespace Example03.Contracts;
 
 public sealed record Message
 {
