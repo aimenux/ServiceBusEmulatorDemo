@@ -12,13 +12,13 @@ public sealed record Message
         Category = GetRandomCategory();
         Text = $"Text for Id {Id}";
     }
-    
+
     private static string GetRandomCategory()
     {
         var category = Enum.GetValues<Categories>()
             .OrderBy(_ => Guid.NewGuid())
             .First();
-        
+
         return category.ToString();
     }
 }

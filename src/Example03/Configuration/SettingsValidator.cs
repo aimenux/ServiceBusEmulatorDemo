@@ -30,7 +30,7 @@ public sealed class SettingsValidator : IValidateOptions<Settings>
         {
             return ValidateOptionsResult.Fail($"{nameof(Settings.LowSubscriptionName)} is required.");
         }
-        
+
         if (string.IsNullOrWhiteSpace(options.HighSubscriptionName))
         {
             return ValidateOptionsResult.Fail($"{nameof(Settings.HighSubscriptionName)} is required.");
