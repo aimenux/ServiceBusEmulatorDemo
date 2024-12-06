@@ -10,15 +10,26 @@ public static class DependencyInjection
 {
     public static void AddServices(this HostApplicationBuilder builder)
     {
+        builder.AddSettings();
+        builder.AddServiceBus();
+    }
+    
+    private static void AddSettings(this HostApplicationBuilder builder)
+    {
         builder.Services.Configure<Settings>(builder.Configuration.GetSection(Settings.SectionName));
         builder.Services.AddSingleton<IValidateOptions<Settings>, SettingsValidator>();
-        builder.Services.AddSingleton(sp =>
-        {
-            var options = sp.GetRequiredService<IOptions<Settings>>();
-            var connectionString = options.Value.ConnectionString;
-            return new ServiceBusClient(connectionString);
-        });
+    }
+
+    private static void AddServiceBus(this HostApplicationBuilder builder)
+    {
         builder.Services.AddHostedService<QueueConsumer>();
         builder.Services.AddHostedService<QueueProducer>();
+
+        builder.Services.AddSingleton(sp =>
+        {
+            var settings = sp.GetRequiredService<IOptions<Settings>>().Value;
+            var client = new ServiceBusClient(settings.ConnectionString);
+            return client;
+        });
     }
 }
