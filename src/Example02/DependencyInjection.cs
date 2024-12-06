@@ -13,7 +13,7 @@ public static class DependencyInjection
         builder.AddSettings();
         builder.AddServiceBus();
     }
-    
+
     private static void AddSettings(this HostApplicationBuilder builder)
     {
         builder.Services.Configure<Settings>(builder.Configuration.GetSection(Settings.SectionName));
