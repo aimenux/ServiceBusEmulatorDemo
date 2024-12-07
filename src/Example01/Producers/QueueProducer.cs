@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace Example01.Producers;
 
-public class QueueProducer : BackgroundService
+public sealed class QueueProducer : BackgroundService, IAsyncDisposable
 {
     private readonly ServiceBusClient _client;
     private readonly IOptions<Settings> _options;
@@ -32,5 +32,10 @@ public class QueueProducer : BackgroundService
             _logger.LogPublishedMessage(message.Id);
             await Task.Delay(TimeSpan.FromSeconds(_options.Value.ProducerDelayInSeconds), cancellationToken);
         }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await _client.DisposeAsync();
     }
 }

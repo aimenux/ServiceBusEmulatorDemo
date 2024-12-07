@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace Example02.Consumers;
 
-public class TopicConsumer : BackgroundService
+public sealed class TopicConsumer : BackgroundService, IAsyncDisposable
 {
     private readonly ServiceBusClient _client;
     private readonly IOptions<Settings> _options;
@@ -33,5 +33,10 @@ public class TopicConsumer : BackgroundService
 
             await Task.Delay(TimeSpan.FromSeconds(_options.Value.ConsumerDelayInSeconds), cancellationToken);
         }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await _client.DisposeAsync();
     }
 }

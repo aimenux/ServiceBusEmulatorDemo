@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace Example02.Producers;
 
-public class TopicProducer : BackgroundService
+public sealed class TopicProducer : BackgroundService, IAsyncDisposable
 {
     private readonly ServiceBusClient _client;
     private readonly IOptions<Settings> _options;
@@ -38,5 +38,10 @@ public class TopicProducer : BackgroundService
             _logger.LogPublishedMessage(message.Id, message.Category);
             await Task.Delay(TimeSpan.FromSeconds(_options.Value.ProducerDelayInSeconds), cancellationToken);
         }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await _client.DisposeAsync();
     }
 }
