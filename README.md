@@ -20,4 +20,4 @@ Playing with service bus emulator
 > - `dotnet run --project .\src\Example03` 
 >
 
-**`Tools`** : net 8.0, servicebus-emulator, docker
+**`Tools`** : net 9.0, servicebus-emulator, docker
